@@ -50,4 +50,3 @@ break;
 }
 return (day);
 }
-
