@@ -19,7 +19,7 @@ char *create_buffer(char *file)
 
 	if (buffer == NULL)
 	{
-		dprintf(STDERR_FILENO,"Error: Can't write to %s\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
 		exit(99);
 	}
 
@@ -27,8 +27,8 @@ char *create_buffer(char *file)
 }
 
 /**
- * close_file - Description of file is closed
- * @fd: A file description meant to be code
+ * close_file - Closed file
+ * @jb: A file description meant to be code
  */
 void close_file(int jb)
 {
@@ -38,7 +38,7 @@ void close_file(int jb)
 
 	if (j == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", jb);
+		dprintf(STDERR_FILENO, "Error: Can't close jb %d\n", jb);
 		exit(100);
 	}
 }
@@ -74,13 +74,14 @@ int main(int argc, char *argv[])
 	do {
 		if (from == -1 || c == -1)
 		{
-			dprintf(STDERR_FILENO,"Error: Can't read from file %s\n", argv[1]);free(buffer);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			free(buffer);
 			exit(98);
 		}
 		d = write(to, buffer, c);
 		if (to == -1 || d == -1)
 		{
-			dprintf(STDERR_FILENO,"Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			free(buffer);
 			exit(99);
 		}
