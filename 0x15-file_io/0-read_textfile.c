@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * read_textfile - Prints a letter and read file text
@@ -9,29 +10,19 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fd;
-	ssize_t nr, nw;
-	char *buff;
-
-	if (!filename)
-		return (0);
+	char *buf;
+	ssize_t fd;
+	ssize_t a;
+	ssize_t b;
 
 	fd = open(filename, O_RDONLY);
-
-	if (fd  == -1)
+	if (fd == -1)
 		return (0);
+	buf = malloc(sizeof(char) * letters);
+	b = read(fd, buf, letters);
+	a = write(STDOUT_FILENO, buf, b);
 
-	buff = malloc(sizeof(char) * (letters));
-	if (!buff
-		return (0);
-
-	nr = read(fd, buff letters);
-	nw = write(STDOUT_FILENO, buff nr);
-
+	free(buf);
 	close(fd);
-
-	free(buff);
-
-	return (nw);
-}
+	return (a);
 
