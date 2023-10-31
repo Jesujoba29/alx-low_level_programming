@@ -27,18 +27,19 @@ void close_file(int fd);
 	return (buffer);
 	}
 
-	/**
-	 *close_file - Closes file descriptors.
-	 * @fd: The file descriptor to be closed.
-	 */
+/**
+*close_file - Closes file descriptors.
+* @fd: The file descriptor to be closed.
+*
+* Return: if success 1 if not 0
+*/
 	void close_file(int fd)
 	{
 		int a;
 
 		a = close(fd);
-	}
-
-	if (a == -1)
+	
+		if (a == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 	exit(100);
